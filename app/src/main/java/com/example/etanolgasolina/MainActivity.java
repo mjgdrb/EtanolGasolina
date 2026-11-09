@@ -1,7 +1,6 @@
 package com.example.etanolgasolina;
 
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -37,39 +36,33 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        TextView tvResultado = findViewById(R.id.tvResultado);
-        EditText etGasolina = findViewById(R.id.etGasolina);
-        EditText etEtanol = findViewById(R.id.etEtanol);
-        Button btCalcular = findViewById(R.id.btCalcular);
-        Button btLimpar = findViewById(R.id.btLimpar);
+        tvResultado = findViewById(R.id.tvResultado);
+        etGasolina = findViewById(R.id.etGasolina);
+        etEtanol = findViewById(R.id.etEtanol);
+        btCalcular = findViewById(R.id.btCalcular);
+        btLimpar = findViewById(R.id.btLimpar);
 
-        btCalcular.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        btCalcular.setOnClickListener(v -> {
 
-                precoGasolina = Double.parseDouble(etGasolina.getText().toString());
-                precoEtanol = Double.parseDouble(etEtanol.getText().toString());
+            precoGasolina = Double.parseDouble(etGasolina.getText().toString());
+            precoEtanol = Double.parseDouble(etEtanol.getText().toString());
 
-                resultado = precoEtanol / precoGasolina;
+            resultado = precoEtanol / precoGasolina;
 
-                if(resultado <= 0.7){
-                    tvResultado.setText("Melhor abastecer com: " + "Etanol");
-                }else{
-                    tvResultado.setText("Melhor abastecer com: " + "Gasolina");
-                }
+            if(resultado <= 0.7){
+                tvResultado.setText("Melhor abastecer com: " + "Etanol");
+            }else{
+                tvResultado.setText("Melhor abastecer com: " + "Gasolina");
             }
         });
 
-        btLimpar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                resultado = 0;
-                precoGasolina = 0;
-                precoEtanol = 0;
-                tvResultado.setText("Melhor abastecer com: ");
-                etGasolina.setText("");
-                etEtanol.setText("");
-            }
+        btLimpar.setOnClickListener(v -> {
+            resultado = 0;
+            precoGasolina = 0;
+            precoEtanol = 0;
+            tvResultado.setText("Melhor abastecer com: ");
+            etGasolina.setText("");
+            etEtanol.setText("");
         });
     }
 }
