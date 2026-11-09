@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:textColor="@color/white"
-        android:textSize="20dp"
+        android:textSize="20sp"
         android:text="Melhor abastecer com: "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
